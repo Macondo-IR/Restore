@@ -4,17 +4,17 @@ interface Props{
     products:Product[];
     addProduct:()=>void;
 }
-export default function Catalog(props:Props){
+export default function Catalog({products,addProduct}:Props){
     return(
         <>
         <ul>
-            {props.products.map((product,index) =>(
+            {products.map((product,index) =>(
             <li key={index}>
             {product.name} - {product.price}- {product.description}
             </li>
             ))}
             </ul>
-            <button  onClick={props.addProduct}>Add Product</button>
+            <button  onClick={addProduct}>Add Product</button>
         </>
     )
 
