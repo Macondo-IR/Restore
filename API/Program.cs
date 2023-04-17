@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using API.Data;
+using API.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,6 +23,7 @@ builder.Services.AddCors();
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionMiddleware>();
 //for show error 
 app.UseExceptionHandler();
 app.UseStatusCodePages();

@@ -22,6 +22,8 @@ public async Task <ActionResult<List<Product>>> GetProdcucts(){
 
 [HttpGet("{id}")]
 public async Task <ActionResult<Product>> GetProdcuct(int id){
-    return await context.Products.FindAsync(id);
+    var product= await context.Products.FindAsync(id);
+    if(product==null) return NotFound();
+    return product;
 }
 }
