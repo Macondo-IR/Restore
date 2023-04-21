@@ -54,12 +54,12 @@ finally{
 // }
     app.UseSwagger();
     app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
 app.UseCors(opt => 
 {
-    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000","http://localhost:80","http://localhost:80","http://185.8.173.74");
+    opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:3000","http://185.8.173.74:80","http://185.8.173.74");
 });
+
 
 app.UseAuthorization();
 
